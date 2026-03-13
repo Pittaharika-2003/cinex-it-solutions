@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Content Marketing | Cinex IT Solutions</title>
+
+<style>
+
+/* GLOBAL */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+background:#0a0a0a;
+color:white;
+line-height:1.7;
+}
+
+/* PARTICLES BACKGROUND */
+
+#particles-canvas{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+z-index:-1;
+background:#0a0a0a;
+}
+
+/* CONTAINER */
+
+.container{
+max-width:1200px;
+margin:auto;
+padding:0 20px;
+}
+/* NAVBAR */
+
+.navbar{
+position:fixed;
+top:0;
+width:100%;
+z-index:1000;
+background:rgba(0,0,0,0.4);
+backdrop-filter:blur(10px);
+}
+
+.nav-container{
+max-width:1200px;
+margin:auto;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:15px 20px;
+}
+.nav-right{
+    display:flex;
+    align-items:center;
+    gap:25px;
+}
+
+/* LOGO */
+
+.logo img{
+height:60px;
+}
+
+/* NAV LINKS */
+
+.nav-links{
+display:flex;
+gap:35px;
+list-style:none;
+
+}
+
+.nav-links a{
+text-decoration:none;
+color:white;
+font-size:15px;
+position:relative;
+transition:0.3s;
+text-align: right;
+}
+
+/* HOVER EFFECT */
+
+.nav-links a::after{
+content:"";
+position:absolute;
+left:0;
+bottom:-6px;
+width:0%;
+height:2px;
+background:#ff7a18;
+transition:0.3s;
+}
+
+.nav-links a:hover::after{
+width:100%;
+}
+
+/* ACTIVE LINK */
+
+.nav-links a.active{
+color:#ff7a18;
+}
+
+/* MOBILE MENU */
+
+.menu-toggle{
+display:none;
+flex-direction:column;
+cursor:pointer;
+}
+
+.menu-toggle span{
+width:25px;
+height:3px;
+background:white;
+margin:4px 0;
+}
+
+@media(max-width:768px){
+
+.nav-links{
+position:absolute;
+top:70px;
+left:0;
+width:100%;
+background:black;
+flex-direction:column;
+align-items:center;
+display:none;
+padding:20px 0;
+}
+
+.nav-links.active{
+display:flex;
+}
+
+.menu-toggle{
+display:flex;
+}
+
+}
+/* CTA BUTTON */
+
+.cta-btn{
+padding:10px 22px;
+background:linear-gradient(45deg,#ff7a18,#ffb347);
+color:white;
+text-decoration:none;
+border-radius:25px;
+font-size:14px;
+font-weight:500;
+transition:0.3s;
+margin-left:20px;
+}
+
+.cta-btn:hover{
+transform:translateY(-2px);
+box-shadow:0 8px 20px rgba(255,122,24,0.4);
+}
+@media(max-width:768px){
+
+.cta-btn{
+display:none;
+}
+
+}
+/* SECTION SPACING */
+
+section{
+padding:120px 0;
+}
+
+/* ABOUT */
+
+.service-about{
+padding-top:180px;
+}
+
+.service-about .container{
+display:flex;
+align-items:center;
+gap:70px;
+}
+
+.service-text{
+flex:1;
+}
+
+.service-text h1{
+font-size:46px;
+margin-bottom:20px;
+}
+
+.service-text p{
+color:#bbb;
+}
+
+.service-image{
+flex:1;
+}
+
+.service-image img{
+width:100%;
+border-radius:12px;
+}
+
+/* SECTION TITLE */
+
+.section-title{
+text-align:center;
+font-size:36px;
+margin-bottom:60px;
+}
+
+/* FEATURES */
+
+.feature-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+}
+
+.feature-card{
+background:#111;
+padding:35px;
+border-radius:12px;
+border:1px solid #222;
+transition:0.4s;
+}
+
+.feature-card h3{
+margin-bottom:10px;
+}
+
+.feature-card p{
+color:#bbb;
+}
+
+.feature-card:hover{
+transform:translateY(-10px);
+border-color:#ff7a18;
+box-shadow:0 20px 40px rgba(0,0,0,0.6);
+}
+
+/* BENEFITS */
+
+.benefits p{
+color:#bbb;
+margin-bottom:20px;
+}
+
+.benefits ul{
+list-style:none;
+}
+
+.benefits li{
+margin-bottom:12px;
+color:#ccc;
+}
+
+/* CTA */
+
+.cta-section{
+text-align:center;
+background:#111;
+padding:100px 20px;
+}
+
+.cta{
+display:inline-block;
+padding:13px 32px;
+background:#ff7a18;
+border-radius:30px;
+text-decoration:none;
+color:white;
+font-weight:600;
+transition:0.3s;
+}
+
+.cta:hover{
+transform:translateY(-3px);
+box-shadow:0 10px 25px rgba(255,122,24,0.4);
+}
+
+/* SCROLL ANIMATION */
+
+.fade-up{
+opacity:0;
+transform:translateY(40px);
+transition:0.8s;
+}
+
+.fade-up.show{
+opacity:1;
+transform:translateY(0);
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.service-about .container{
+flex-direction:column;
+text-align:center;
+}
+
+.service-text h1{
+font-size:36px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<canvas id="particles-canvas"></canvas>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+
+<div class="nav-container">
+
+<!-- Logo -->
+<div class="logo">
+<img src="https://res.cloudinary.com/dkhmpija5/image/upload/v1773393637/Cinex-IT-Solutions_gf5idt.png" alt="Cinex IT Solutions">
+</div>
+<div class="nav-right">
+<!-- Navigation Links -->
+<ul class="nav-links">
+
+<li><a href="index.html#home" class="nav-link active">Home</a></li>
+<li><a href="index.html#services" class="nav-link">Services</a></li>
+<li><a href="index.html#works" class="nav-link">Our Works</a></li>
+<li><a href="index.html#process" class="nav-link">Process</a></li>
+<li><a href="index.html#contact" class="nav-link">Contact</a></li>
+
+</ul>
+
+<!-- CTA Button -->
+<a href="#contact" class="cta-btn">Get Started</a>
+
+<!-- Mobile Menu -->
+<div class="menu-toggle">
+<span></span>
+<span></span>
+<span></span>
+</div>
+
+</div>
+</div>
+</nav>
+<!-- ABOUT -->
+
+<section class="service-about fade-up">
+
+<div class="container">
+
+<div class="service-text">
+
+<h1>Content Marketing</h1>
+
+<p>
+
+Content marketing is one of the most powerful ways to attract,
+educate and convert potential customers.
+
+At Cinex IT Solutions we create high-quality content that
+builds brand authority, improves search engine visibility,
+and drives long-term organic traffic.
+
+Our content strategies combine SEO, storytelling and
+data-driven insights to deliver meaningful engagement
+with your audience.
+
+</p>
+
+</div>
+
+<div class="service-image">
+
+<img src="https://img.freepik.com/free-photo/online-strategy-media-marketing-icons_53876-167094.jpg?semt=ais_rp_progressive&w=740&q=80" alt="Content Marketing">
+
+</div>
+
+</div>
+
+</section>
+
+<!-- FEATURES -->
+
+<section class="features fade-up">
+
+<div class="container">
+
+<h2 class="section-title">Our Content Marketing Services</h2>
+
+<div class="feature-grid">
+
+<div class="feature-card">
+<h3>Blog Writing</h3>
+<p>SEO optimized blog posts that drive organic traffic.</p>
+</div>
+
+<div class="feature-card">
+<h3>Website Content</h3>
+<p>Professional website copy that communicates your brand clearly.</p>
+</div>
+
+<div class="feature-card">
+<h3>SEO Content Strategy</h3>
+<p>Strategic content planning to improve search rankings.</p>
+</div>
+
+<div class="feature-card">
+<h3>Content Distribution</h3>
+<p>Promoting content through social media and digital platforms.</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- BENEFITS -->
+
+<section class="benefits fade-up">
+
+<div class="container">
+
+<h2 class="section-title">Why Choose Our Content Marketing</h2>
+
+<p>
+Our content marketing strategies focus on building trust,
+authority and long-term customer relationships.
+</p>
+
+<ul>
+
+<li>✔ Increase organic website traffic</li>
+<li>✔ Improve search engine rankings</li>
+<li>✔ Build brand credibility</li>
+<li>✔ Generate quality leads</li>
+
+</ul>
+
+</div>
+
+</section>
+
+<!-- CTA -->
+
+<section class="cta-section fade-up">
+
+<div class="container">
+
+<h2>Grow Your Business With Powerful Content</h2>
+
+<a href="index.html#contact" class="cta">Start Your Project</a>
+
+</div>
+
+</section>
+
+<script>
+
+/* SCROLL ANIMATION */
+
+const observer = new IntersectionObserver((entries)=>{
+entries.forEach((entry)=>{
+if(entry.isIntersecting){
+entry.target.classList.add("show");
+}
+});
+});
+
+document.querySelectorAll(".fade-up").forEach((el)=>{
+observer.observe(el);
+});
+
+/* PARTICLES WITH CONNECTING LINES */
+
+const canvas=document.getElementById("particles-canvas");
+const ctx=canvas.getContext("2d");
+
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+
+let particles=[];
+
+for(let i=0;i<80;i++){
+
+particles.push({
+
+x:Math.random()*canvas.width,
+y:Math.random()*canvas.height,
+vx:(Math.random()-0.5)*0.7,
+vy:(Math.random()-0.5)*0.7
+
+});
+
+}
+
+function draw(){
+
+ctx.clearRect(0,0,canvas.width,canvas.height);
+
+particles.forEach(p=>{
+
+p.x+=p.vx;
+p.y+=p.vy;
+
+if(p.x<0||p.x>canvas.width)p.vx*=-1;
+if(p.y<0||p.y>canvas.height)p.vy*=-1;
+
+ctx.beginPath();
+ctx.arc(p.x,p.y,2,0,Math.PI*2);
+ctx.fillStyle="white";
+ctx.fill();
+
+});
+
+for(let i=0;i<particles.length;i++){
+
+for(let j=i+1;j<particles.length;j++){
+
+let dx=particles[i].x-particles[j].x;
+let dy=particles[i].y-particles[j].y;
+
+let dist=Math.sqrt(dx*dx+dy*dy);
+
+if(dist<120){
+
+ctx.beginPath();
+ctx.moveTo(particles[i].x,particles[i].y);
+ctx.lineTo(particles[j].x,particles[j].y);
+ctx.strokeStyle="rgba(255,255,255,0.08)";
+ctx.stroke();
+
+}
+
+}
+
+}
+
+requestAnimationFrame(draw);
+
+}
+
+draw();
+
+</script>
+
+</body>
+</html>
